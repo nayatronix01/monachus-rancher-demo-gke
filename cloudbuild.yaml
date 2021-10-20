@@ -26,6 +26,6 @@
     - |
           
           gcloud container clusters get-credentials gcp-gke-cluster-prod --project work-examples --zone europe-west1-b
-#          sed -i 's|gcr.io/project-id/myreact-app|gcr.io/$PROJECT_ID/myreact-app:$SHORT_SHA|' ./deployment.yaml
+#         sed -i 's|gcr.io/project-id/myreact-app|gcr.io/$PROJECT_ID/myreact-app:$SHORT_SHA|' ./deployment.yaml
           kubectl apply -f ./deployment.yaml
 timeout: 2000s
