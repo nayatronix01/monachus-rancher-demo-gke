@@ -1,0 +1,92 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+   name: demos
+
+---
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name:  monachus-rancher-demo
+  namespace: demos 
+  labels:
+    app: monachus-rancher-demo
+spec:
+  replicas: 6 
+  selector:
+    matchLabels:
+      app: monachus-rancher-demo
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 10%
+  template:
+    metadata:
+      labels:
+        app: monachus-rancher-demo
+      annotations:
+    spec:
+      containers:
+        - name: app 
+          image: monachus/rancher-demo
+          imagePullPolicy: IfNotPresent
+          env:
+            - name: COW_COLOR 
+              valueFrom:
+                 configMapKeyRef:
+                    name: cow-color 
+                    key: PINK 
+                    optional: false
+          ports:
+            - containerPort: 8080
+
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: monachus-rancher-demo
+  annotations:
+    cloud.google.com/neg: '{"ingress": true}'
+spec:
+  ports:
+    - port: 80
+      targetPort: 8080
+  selector:
+    name: monachus-rancher-demo
+
+
+---
+
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: cow-color
+  namespace: demos
+data:
+  BLACK: BLACK
+  BLUE: BLUE
+  GREEN: GREEN
+  INDIGO: INDIGO
+  OLIVE: OLIVE
+  PINK: PINK
+  PURPLE: PURPLE
+  RED: RED
+  ORANGE: ORANGE
+  YELLOW: YELLOW
+  VIOLET: VIOLET
+  TEAL: TEAL
+  MAROON: MAROON
+  FUCHSIA: FUCHSIA
+  LIME: LIME
+  AQUA: AQUA
+  NAVY: NAVY
+  GRAY: GRAY
+  SILVER: SILVER
+  WHITE: WHITE
+  INDIANRED: INDIANRED
+  LIGHTCORAL: LIGHTCORAL
+  CRIMSON: CRIMSON
