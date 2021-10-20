@@ -48,7 +48,7 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  app: monachus-rancher-demo
+  name: monachus-rancher-demo
   namespace: demos 
 spec:
   type: LoadBalancer
@@ -56,7 +56,7 @@ spec:
     - port: 80
       targetPort: 8080
   selector:
-    app: monachus-rancher-demo
+    name: monachus-rancher-demo
 
 
 ---
