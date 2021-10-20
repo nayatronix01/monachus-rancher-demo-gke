@@ -13,7 +13,7 @@ metadata:
   labels:
     app: monachus-rancher-demo
 spec:
-  replicas: 16 
+  replicas: 18 
   selector:
     matchLabels:
       app: monachus-rancher-demo
