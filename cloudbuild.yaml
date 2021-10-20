@@ -32,11 +32,11 @@
 
 # deploys the new version of our container image in the Kubernetes Engine cluster.
 #The env takes a list of environment variables to be used when running the step. The are KEY=VALUE.
-  - name: 'gcr.io/cloud-builders/kubectl'
-    id: Deploy
-    args: ['apply' , '-f' , 'monachus-rancher-demo-k3s-deployment.yaml']
-    env:
-#    - 'CLOUDSDK_COMPUTE_ZONE=europe-west1'
-#    - 'CLOUDSDK_CONTAINER_CLUSTER=gcp-gke-cluster-prod'
-     - 'CLOUDSDK_COMPUTE_ZONE=${_CLOUDSDK_COMPUTE_ZONE}'
-     - 'CLOUDSDK_CONTAINER_CLUSTER=${_CLOUDSDK_CONTAINER_CLUSTER}'
+- name: 'gcr.io/cloud-builders/kubectl'
+  id: Deploy
+  args: ['apply' , '-f' , 'monachus-rancher-demo-k3s-deployment.yaml']
+  env:
+#   - 'CLOUDSDK_COMPUTE_ZONE=europe-west1'
+#   - 'CLOUDSDK_CONTAINER_CLUSTER=gcp-gke-cluster-prod'
+   - 'CLOUDSDK_COMPUTE_ZONE=${_CLOUDSDK_COMPUTE_ZONE}'
+   - 'CLOUDSDK_CONTAINER_CLUSTER=${_CLOUDSDK_CONTAINER_CLUSTER}'
