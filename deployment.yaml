@@ -56,9 +56,7 @@ spec:
     - port: 80
       targetPort: 8080
   selector:
-    matchLabels:
-      app: monachus-rancher-demo
-
+    app: monachus-rancher-demo
 
 ---
 
