@@ -29,7 +29,7 @@ spec:
       annotations:
     spec:
       containers:
-        - name: app 
+        - name: monachus-rancher-demo 
           image: monachus/rancher-demo
           imagePullPolicy: IfNotPresent
           env:
@@ -56,7 +56,8 @@ spec:
     - port: 80
       targetPort: 8080
   selector:
-    name: monachus-rancher-demo
+    matchLabels:
+      app: monachus-rancher-demo
 
 
 ---
