@@ -34,7 +34,7 @@ steps:
 #The env takes a list of environment variables to be used when running the step. The are KEY=VALUE.
 - name: 'gcr.io/cloud-builders/kubectl'
   id: Deploy
-  args: ['apply' , '-f' , 'monachus-rancher-demo-k3s-deployment.yaml']
+  args: ['apply' , '-f' , 'deployment.yaml']
   env:
   - 'CLOUDSDK_COMPUTE_ZONE=europe-west1'   
   - 'CLOUDSDK_CONTAINER_CLUSTER=gcp-gke-cluster-prod'
