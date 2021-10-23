@@ -37,7 +37,7 @@ spec:
               valueFrom:
                  configMapKeyRef:
                     name: cow-color 
-                    key: RED  
+                    key: BLUE  
                     optional: false
           ports:
             - containerPort: 8080
