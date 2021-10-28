@@ -3,6 +3,7 @@ Monachus rancher demo app can be downloaded here - https://hub.docker.com/r/mona
 
 
 In order to run this app, GKE need to be running already. GKE Terraform config can be cloned here - https://github.com/nayatronix01/gcp-gke-cloudbuild.git
+
 Edit the deployment.yaml to change number of replicas or the cow color.
 
 #Screenshot
